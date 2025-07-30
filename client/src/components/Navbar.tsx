@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
 
           <button
             className="btn btn-ghost btn-circle cursor-pointer"
-            onClick={() => signoutMutation()}
+            onClick={signoutMutation}
           >
             <LogOutIcon className="h-6 w-6 text-base-content hover:text-red-500 opacity-70" />
           </button>
