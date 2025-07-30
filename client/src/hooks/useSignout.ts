@@ -1,9 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { signout } from "../lib/api";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const useSignout = () => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const {
     mutate: signoutMutation,
@@ -14,6 +16,7 @@ const useSignout = () => {
     onSuccess: (res) => {
       toast.success(res.message);
       queryClient.invalidateQueries({ queryKey: ["authUser"] });
+      navigate("/signin");
     },
   });
 
