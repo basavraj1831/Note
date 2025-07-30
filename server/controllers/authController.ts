@@ -59,7 +59,6 @@ export const signup = async (req: any, res: any) => {
 
 export const googleSignin = async (req: any, res: any) => {
   const { email, fullName, dob } = req.body;
-  console.log(req.body);
 
   try {
     let user = await User.findOne({ email });
@@ -265,6 +264,10 @@ export const signin = async (req: any, res: any) => {
 };
 
 export const signout = async (req: any, res: any) => {
-  res.clearCookie("jwt");
+   res.clearCookie("jwt", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  });
   res.status(200).json({ success: true, message: "Signout Successful." });
 };
