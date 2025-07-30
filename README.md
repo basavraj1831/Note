@@ -27,9 +27,6 @@ A feature-rich, full-stack **Note-taking** application built using:
 
 ---
 
-## 📁 Folder Structure
-
----
 ## ⚙️ Installation and Setup Guide
 
 ### 🔽 Step 1: Clone the Repository
